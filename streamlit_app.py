@@ -16,7 +16,7 @@ background-color:#98FF98;
 </style>
 ''',unsafe_allow_html=True)
 # Load your TensorFlow model here
-MODEL2 = tf.keras.models.load_model("inception_model.h5")
+MODEL1 = tf.keras.models.load_model("inception_model.h5")
 MODEL2 = tf.keras.models.load_model("mobilenet_model.h5")
 MODEL3 = tf.keras.models.load_model("nasnet_model.h5")
 
