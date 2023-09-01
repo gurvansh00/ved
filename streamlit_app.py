@@ -50,7 +50,7 @@ if uploaded_file is not None:
     blightaccu=0
     brownaccu=0
     smutaccu=0
-    list=[p2,p3]
+    list=[p1,p2,p3]
     for i in list:
         if categories[np.argmax(i)] =="Healthy":
             healthaccu += round(np.max(i)*100, 2)
