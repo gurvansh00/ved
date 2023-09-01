@@ -16,8 +16,9 @@ background-color:#98FF98;
 </style>
 ''',unsafe_allow_html=True)
 # Load your TensorFlow model here
-MODEL2 = tf.keras.models.load_model("./savedmodels/mobile_model.h5")
-MODEL3 = tf.keras.models.load_model("./savedmodels/nasnet_model.h5")
+MODEL2 = tf.keras.models.load_model("inception_model.h5")
+MODEL2 = tf.keras.models.load_model("mobilenet_model.h5")
+MODEL3 = tf.keras.models.load_model("nasnet_model.h5")
 
 # Define the categories your model predicts on
 categories = ["Healthy", "Bacterial Leaf Blight", "Brown Spot", "Leaf Smut"]
@@ -38,11 +39,13 @@ if uploaded_file is not None:
     image_to_predict=image_to_predict/255
     images_array=[]
     images_array.append(image_to_predict)
+    p1= MODEL1.predict(images_array)
     p2= MODEL2.predict(images_array)
     p3=MODEL3.predict(images_array)
+    accu1=round(np.max(p1)*100,2)
     accu2=round(np.max(p2)*100,2)
     accu3=round(np.max(p3)*100,2)
-    totaccu=accu2+accu3
+    totaccu=accu2+accu3+accu1
     healthaccu=0
     blightaccu=0
     brownaccu=0
